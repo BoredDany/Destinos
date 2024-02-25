@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Destination</string>
+    <string name="buttonExplore">Explorar destinos</string>
+    <string name="buttonFavs">Favoritos</string>
+    <string name="buttonRecomend">Recomendaciones</string>
+    <string name="TitleExploration">"Destinos filtrados por: "</string>
+</resources>

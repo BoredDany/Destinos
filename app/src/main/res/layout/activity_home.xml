@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity"
+    android:layout_margin="20dp" >
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:entries="@array/filters"/>
+
+    <Button
+        android:id="@+id/destinosBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/buttonExplore"
+        android:gravity="center"
+        android:layout_below="@+id/spinner"
+        android:backgroundTint="@color/purple_700"
+        android:textColor="@color/white"/>
+
+    <Button
+        android:id="@+id/favsBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/buttonFavs"
+        android:gravity="center"
+        android:layout_below="@+id/destinosBtn"
+        android:backgroundTint="@color/purple_700"
+        android:textColor="@color/white"/>
+
+    <Button
+        android:id="@+id/recomendBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/buttonRecomend"
+        android:gravity="center"
+        android:layout_below="@+id/favsBtn"
+        android:backgroundTint="@color/purple_700"
+        android:textColor="@color/white"/>
+</RelativeLayout>
