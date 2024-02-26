@@ -9,4 +9,6 @@
     <string name="a_adir_a_favoritos">Añadir a favoritos</string>
     <string name="recomendaciones">Recomendaciones</string>
     <string name="destinos_favritos">Destinos favritos:</string>
+    <string name="weather">ciudad no encontrada</string>
+    <string name="informaci_n_geogr_fica">Información geográfica</string>
 </resources>

@@ -2,7 +2,6 @@ package com.example.destination.model
 
 
 import android.app.Activity
-import android.widget.Button
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.IOException
@@ -12,7 +11,6 @@ class  DestinationManager private constructor() {
     lateinit var destinations: JSONArray
     var destinationsList: MutableList<Destination> = mutableListOf()
     var favs: MutableList<Destination> = mutableListOf()
-    var recomendations: MutableList<String> = mutableListOf()
     val jsonFile = "destinos.json"
 
     companion object{
@@ -48,7 +46,9 @@ class  DestinationManager private constructor() {
                 val activity = jsonObject.getString("plan")
                 val price = jsonObject.getString("precio")
                 var destination = Destination(capital, country, category, activity, price)
-                destinationsList.add(destination)
+                if(!isAdded(capital)){
+                    destinationsList.add(destination)
+                }
                 if (categoryE.equals("Todos", ignoreCase = true) || category.equals(categoryE, ignoreCase = true)) {
                     countriesArr.add(capital)
                 }
@@ -81,9 +81,9 @@ class  DestinationManager private constructor() {
         return false
     }
 
-    fun isAddedToRecomendations(destination: String): Boolean{
-        for(dest: String in recomendations){
-            if(dest.equals(destination)){
+    fun isAdded(destination: String): Boolean{
+        for(dest: Destination in destinationsList){
+            if(dest.city.equals(destination)){
                 return true
             }
         }
@@ -103,31 +103,26 @@ class  DestinationManager private constructor() {
         return favsDestinations
     }
 
-    fun buildRecomendations(){
+    fun buildRecomendations(): MutableList<String> {
+        val recomendations: MutableList<String> = mutableListOf()
         val favsCategories = mutableMapOf<String, Int>()
-        var mostRepeatedCategory = ""
         var maxFrequency = 0
 
-        for(dest: Destination in favs){
+        for (dest: Destination in favs) {
             val category = dest.category
-            if (favsCategories.containsKey(category)) {
-                favsCategories[category] = favsCategories[category]!! + 1
-            } else {
-                favsCategories[category] = 1
-            }
+            favsCategories[category] = favsCategories.getOrDefault(category, 0) + 1
+            maxFrequency = maxOf(maxFrequency, favsCategories[category]!!)
         }
 
         for ((category, frequency) in favsCategories) {
-            if (frequency > maxFrequency) {
-                mostRepeatedCategory = category
-                maxFrequency = frequency
+            if (frequency == maxFrequency) {
+                for (dest in destinationsList) {
+                    if (dest.category == category) {
+                        recomendations.add(dest.city)
+                    }
+                }
             }
         }
-
-        for (dest in destinationsList) {
-            if (dest.category == mostRepeatedCategory && !isAddedToRecomendations(dest.city)) {
-                recomendations.add(dest.city)
-            }
-        }
+        return recomendations
     }
 }

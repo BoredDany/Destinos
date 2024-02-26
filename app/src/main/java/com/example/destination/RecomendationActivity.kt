@@ -17,12 +17,11 @@ class RecomendationActivity : AppCompatActivity() {
 
         val title = findViewById<TextView>(R.id.recomendationText)
         val recomendList = findViewById<ListView>(R.id.recomendationsList)
-        DestinationManager.instance.buildRecomendations()
 
         if(DestinationManager.instance.favs.isEmpty()){
             title.text = "Recomendaciones: NA"
         }else{
-            val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, DestinationManager.instance.recomendations)
+            val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, DestinationManager.instance.buildRecomendations())
             recomendList.adapter = adapter
         }
 

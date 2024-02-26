@@ -12,7 +12,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/city"
-        android:layout_centerInParent="true" />
+        android:layout_centerInParent="true"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
 
     <TextView
         android:id="@+id/info"
@@ -21,6 +23,25 @@
         android:text="@string/info"
         android:layout_below="@+id/city"
         android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/titleWeather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/informaci_n_geogr_fica"
+        android:layout_below="@id/info"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:id="@+id/infoWeather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/weather"
+        android:layout_below="@id/titleWeather"
+        android:layout_centerHorizontal="true" />
 
 
     <LinearLayout
@@ -35,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/a_adir_a_favoritos"
-            android:backgroundTint="@color/purple_700"
+            android:backgroundTint="@color/purple"
             android:textColor="@color/white" />
 
     </LinearLayout>
