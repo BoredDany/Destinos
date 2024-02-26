@@ -21,12 +21,19 @@ class HomeActivity : AppCompatActivity(),  AdapterView.OnItemSelectedListener {
         spinner.onItemSelectedListener = this
 
         btnExplore.setOnClickListener {
-            val intent = Intent(this, ExploreActivity::class.java)
-            val bundle = Bundle()
-            bundle.putString("filter", spinner.selectedItem.toString())
-            intent.putExtra("bundle", bundle)
+            setExploreIntent(spinner)
+        }
+
+        btnFavs.setOnClickListener {
+            val intent = Intent(this, FavsActivity::class.java)
             startActivity(intent)
         }
+
+        btnRecomend.setOnClickListener {
+            val intent = Intent(this, RecomendationActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -35,5 +42,13 @@ class HomeActivity : AppCompatActivity(),  AdapterView.OnItemSelectedListener {
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
+    }
+
+    fun setExploreIntent(spinner:Spinner){
+        val intent = Intent(this, ExploreActivity::class.java)
+        val bundle = Bundle()
+        bundle.putString("filter", spinner.selectedItem.toString())
+        intent.putExtra("bundle", bundle)
+        startActivity(intent)
     }
 }
