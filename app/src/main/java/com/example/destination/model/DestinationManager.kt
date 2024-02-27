@@ -103,7 +103,7 @@ class  DestinationManager private constructor() {
         return favsDestinations
     }
 
-    fun buildRecomendations(): MutableList<String> {
+    fun buildRecomendations(): String {
         val recomendations: MutableList<String> = mutableListOf()
         val favsCategories = mutableMapOf<String, Int>()
         var maxFrequency = 0
@@ -123,6 +123,9 @@ class  DestinationManager private constructor() {
                 }
             }
         }
-        return recomendations
+        if(recomendations.size == 0){
+            return ""
+        }
+        return recomendations.random()
     }
 }

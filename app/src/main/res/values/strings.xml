@@ -11,4 +11,5 @@
     <string name="destinos_favritos">Destinos favritos:</string>
     <string name="weather">ciudad no encontrada</string>
     <string name="informaci_n_geogr_fica">Información geográfica</string>
+    <string name="recomendaci_n">Recomendación</string>
 </resources>

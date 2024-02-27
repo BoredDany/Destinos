@@ -8,18 +8,49 @@
     android:layout_margin="20dp">
 
     <TextView
-        android:id="@+id/recomendationText"
-        android:layout_width="match_parent"
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/recomendaciones"
-        android:layout_marginBottom="20dp">
-    </TextView>
+        android:text="@string/recomendaci_n"
+        android:layout_centerInParent="true"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
 
-    <ListView
-        android:id="@+id/recomendationsList"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/city"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/recomendationText">
-    </ListView>
+        android:text="@string/city"
+        android:layout_centerInParent="true"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_below="@+id/title"/>
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/info"
+        android:layout_below="@+id/city"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/titleWeather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/informaci_n_geogr_fica"
+        android:layout_below="@id/info"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:id="@+id/infoWeather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/weather"
+        android:layout_below="@id/titleWeather"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
