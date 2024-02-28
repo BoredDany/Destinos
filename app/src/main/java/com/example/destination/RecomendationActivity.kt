@@ -29,11 +29,16 @@ class RecomendationActivity : AppCompatActivity() {
         val title = findViewById<TextView>(R.id.title)
         val cityField = findViewById<TextView>(R.id.city)
         val info = findViewById<TextView>(R.id.info)
+        val titleWeather = findViewById<TextView>(R.id.titleWeather)
+        val infoWeather = findViewById<TextView>(R.id.infoWeather)
+
 
         if(DestinationManager.instance.favs.isEmpty()){
             title.text = "Recomendaciones: NA"
             cityField.text = ""
             info.text = ""
+            titleWeather.text = ""
+            infoWeather.text = ""
         }else{
             val city = DestinationManager.instance.buildRecomendations()
             val destination: Destination? = city?.let { DestinationManager.instance.getDestinationbyCity(it) }

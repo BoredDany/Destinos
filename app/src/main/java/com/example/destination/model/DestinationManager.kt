@@ -116,7 +116,7 @@ class  DestinationManager private constructor() {
 
         for ((category, frequency) in favsCategories) {
             if (frequency == maxFrequency) {
-                for (dest in destinationsList) {
+                for (dest in favs) {
                     if (dest.category == category) {
                         recomendations.add(dest.city)
                     }
